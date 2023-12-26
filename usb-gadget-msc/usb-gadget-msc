@@ -26,4 +26,4 @@ if not os.path.exists(usb_backingfile):
         exit(1)
 
 time.sleep(5)
-run_device_command(f'modprobe g_mass_storage file={usb_backingfile} stall=0 removable=1')
+run_device_command(f'modprobe g_mass_storage file={usb_backingfile} stall=0')
