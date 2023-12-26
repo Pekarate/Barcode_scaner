@@ -17,5 +17,5 @@ pip --version
 
 :end
 pip install -r requirements.txt
-python device-setup.py
+python device-setup.py 192.168.1
 pause
