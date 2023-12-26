@@ -3,6 +3,7 @@ import paramiko
 import socket
 import os
 import concurrent.futures
+import sys 
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
@@ -88,10 +89,10 @@ def device_setup(ip):
             print(f"SSH ip: {ip}: failed")
         sock.close()
 
-def scan_network():
-    subnet = getNetworkIp().split('.')
-    subnet.pop()
-    subnet = ".".join(subnet)
+def scan_network(subnet):
+    # subnet = getNetworkIp().split('.')
+    # subnet.pop()
+    # subnet = ".".join(subnet)
     print("Subnet scanning:", subnet)
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
@@ -105,4 +106,4 @@ def scan_network():
             result = future.result()
             # Xử lý kết quả nếu cần thiết
 
-scan_network()
+scan_network(sys.argv[1])
